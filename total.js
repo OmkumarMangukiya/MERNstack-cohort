@@ -1,4 +1,6 @@
 // Record the start time
+
+
 const startTime = performance.now();
 
 // Simulate an asynchronous operation (e.g., fetching data)
