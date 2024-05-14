@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Form_One</title>
+<!--    <link rel="stylesheet" href="./index.css">-->
+</head>
+<body>
+<h1>Form One</h1>
+<form action="" method="GET" >
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" placeholder="Name" required>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <label>
+        <select required multiple>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
+    </label>
+    <br>
+     <label for="number">Number</label>
+         <input list = "number" id="inputNumber" name="number" placeholder="number">
+    <datalist id="number" >
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </datalist>
+
+
+<br>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>
