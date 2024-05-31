@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script>
+        let timeout;
+         function populateDiv2(){
+            clearTimeout(timeout);
+            
+           timeout = setTimeout(() => {
+                populateDiv();
+            }, 1000);
+            
+        }
+
+         function populateDiv(){
+            const a = document.getElementById("1").value;
+            const b = document.getElementById("2").value;
+            fetch("http://localhost:5000/?a=" + a + "&b=" + b) // Added "http://" protocol
+            .then(function(response){
+              response.text().then(function(ans){
+                document.getElementById("finalSum").innerHTML = ans;
+              })
+            })
+            
+        }
+    </script>
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input oninput="populateDiv2()" id = "1" type="text" placeholder="First Number"></input> <br>
+    <input oninput="populateDiv2()" id = "2" type="text" placeholder="Second Number"></input> <br>
+    <button onclick="populateDiv()">Calculate Sum</button>
+    <div id = "finalSum"></div>
+</body>
+</html>

@@ -48,7 +48,7 @@ app.post("/signin", function (req, res) {
   return res.json({
     token,
   });
-});
+}); 
 
 app.get("/users", function (req, res) {
   const token = req.headers.authorization;
