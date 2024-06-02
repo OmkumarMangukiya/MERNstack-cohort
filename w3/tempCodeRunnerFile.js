@@ -1,2 +1,0 @@
-
-const ALL_USERS = [
