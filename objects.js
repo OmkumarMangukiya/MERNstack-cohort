@@ -30,7 +30,6 @@ const obj = {
 obj.name = "John"; // _name is private and cannot be accessed directly // also it is better then using _name directly as it is more secure
 // document.getElementById("demo").innerHTML = obj.name; // Getter
 
-
 // Define object
 const count = {counter : 0};
 
