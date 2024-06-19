@@ -1,2 +1,2 @@
-# BackendDev
-Learning Backend Development
+# LearningMERN
+Learning MERN stack
