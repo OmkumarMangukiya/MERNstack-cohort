@@ -15,7 +15,14 @@ const Signup = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-slate-300 h-screen flex justify-center">
+    <div className="h-screen p-1 bg-slate-300 ">
+    <div className="flex justify-between  rounded-md shadow-md bg-blue-200 outline outline-1">
+            <img src="https://pwebassets.paytm.com/commonwebassets/paytmweb/header/images/logo.svg" alt="" />
+            <div className="flex justify-normal gap-4 p-2">
+            </div>
+        </div>
+        
+    <div className=" flex m-7 justify-center">
       <div className="flex flex-col justify-center">
         <div className="rounded-lg bg-white w-80 text-center p-2 h-max px-4">
           <Heading label={"Sign up"} />
@@ -73,6 +80,7 @@ const Signup = () => {
           />
         </div>
       </div>
+    </div>
     </div>
   );
 };
