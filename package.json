@@ -14,5 +14,15 @@
     "react-router-dom": "^6.23.1",
     "vite": "^5.2.13",
     "zod": "^3.23.8"
-  }
+  },
+  "name": "p1",
+  "description": "1. Creating Readme\r 2. New branch feature-update",
+  "version": "1.0.0",
+  "main": "countDown.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
