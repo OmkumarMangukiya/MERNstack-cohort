@@ -1,28 +1,25 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-import React from "react";
-// import InputBox from "../Components/InputBox";
 import { useState } from "react";
 import axios from "axios"; // Import axios library
-
+import Button from "../Components/Button";
+import InputBox from "../Components/InputBox";
 const Signup = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
     return (
-        <div className=" h-screen p-1 bg-slate-300 ">
-            <div className=" flex flex-col m-auto justify-center rounded-lg bg-white w-fit text-center p-2 h-max ">
-            <input type="text" placeholder="email" onClick={(e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
+        <div className=" h-96 p-12  m-32 mx-44  border-4 border-blue-600 shadow-2xl rounded ">
+            <div className=" flex flex-col mx-auto gap-7 justify-center rounded-lg bg-white w-fit text-center p-2 h-max ">
+            <InputBox  label="email" Click={(e) => {
                 setEmail(e.currentTarget.value);
             }} 
-            
-            className="border-2 border-gray-900 rounded-lg "/>
-            <input type="text" placeholder="password" onClick={(e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
+            />
+            <InputBox  label="password" Click={(e) => {
                 setPassword(e.currentTarget.value);
-            }}/>
-            <input type="text" placeholder="name" onClick={(e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
+            }}/>    
+            <InputBox  label="name" Click={(e) => {
                 setName(e.currentTarget.value);
             }}/>
-            <button onClick={async () => {
+            <Button Click={async () => {
                 const response = await axios.post("http://localhost:3000/api/v1/user/signup", {
                     email: email,
                     password: password,
@@ -31,7 +28,7 @@ const Signup = () => {
                 });
                 localStorage.setItem("token", response.data.token);
 
-            }}>Sign Up</button>
+            }} label="Sign Up"/>
         </div>
         </div>
     )
