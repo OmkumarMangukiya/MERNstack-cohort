@@ -17,7 +17,7 @@ middleware(blogRouter)
 
 blogRouter.post('/create' , async (c)=>{
     const body = await c.req.json();
-
+    console.log(body)
     const prisma = new PrismaClient({
         datasourceUrl: c.env?.DATABASE_URL
     }).$extends(withAccelerate())
@@ -26,11 +26,11 @@ blogRouter.post('/create' , async (c)=>{
         data: {
             title: body.title,
             content: body.content,
-            authorId: body.userId,
+            authorId: body.authorId,
             pusblished: true
     }
     });
-    return c.json({message: 'Blog Created',id: post.id})
+    return c.json({message: 'Blog Created',post})
 
   })
   
@@ -57,7 +57,18 @@ blogRouter.post('/create' , async (c)=>{
     
     return c.json({message: 'Blog Updated', id: post.id});
   })
-  
+  blogRouter.get('/bulk' , async (c)=>{
+    const prisma = new PrismaClient({
+      datasourceUrl: c.env.DATABASE_URL
+    })
+      try{
+        const blogs = await prisma.post.findMany();
+        return c.json(blogs)
+      }
+      catch(e){
+        return c.json({message: 'No Blogs Found'})
+      }
+  })
   blogRouter.get('/:id' , async (c)=>{ 
       const prisma = new PrismaClient({
           datasourceUrl: c.env?.DATABASE_URL
@@ -76,15 +87,4 @@ blogRouter.post('/create' , async (c)=>{
       return c.json(blog);
   })
   
-  blogRouter.get('/bulk' , async (c)=>{
-    const prisma = new PrismaClient({
-      datasourceUrl: c.env.DATABASE_URL
-    })
-      try{
-        const blogs = await prisma.post.findMany();
-        return c.json(blogs)
-      }
-      catch(e){
-        return c.json({message: 'No Blogs Found'})
-      }
-  })
+  
